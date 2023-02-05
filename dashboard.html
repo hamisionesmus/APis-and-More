@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      /* Style the header */
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+
+      /* Style the side bar */
+      .sidebar {
+        background-color: #f2f2f2;
+        height: 100%;
+        position: fixed;
+        padding: 16px;
+        text-align: center;
+        width: 200px;
+      }
+
+      /* Style the sidebar button */
+      .sidebar button {
+        background-color: #4caf50;
+        color: white;
+        padding: 12px;
+        margin: 12px 0;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+        width: 100%;
+      }
+
+      /* Style the sidebar button on hover */
+      .sidebar button:hover {
+        background-color: #3e8e41;
+      }
+
+      /* Style the main content */
+      .main-content {
+        margin-left: 200px;
+        padding: 16px;
+        text-align: center;
+      }
+
+      /* Style the active button */
+      .active {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      /* Style the footer */
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- The header -->
+    <header>
+      <h1>Student, Teacher, Worker Dashboard</h1>
+    </header>
+
+    <!-- The side bar -->
+    <div class="sidebar">
+      <button class="sidebar-button" id="students-button">Students</button>
+      <button class="sidebar-button" id="teachers-button">Teachers</button>
+      <button class="sidebar-button" id="workers-button">Workers</button>
+      <button class="sidebar-button" id="add-student-button">
+        Add Student
+      </button>
+    </div>
+
+    <!-- The main content -->
+    <div class="main-content">
+      <h2 id="dashboard-title">Welcome to the Dashboard</h2>
+      <p id="dashboard-content">
+        Choose a category from the side bar to view information.
+      </p>
+    </div>
+
+    <!-- The footer -->
+    <footer>
+      <p>Copyright &copy; 2023</p>
+    </footer>
+
+    <!-- The JavaScript/jQuery code -->
+    <script>
+      // Get the buttons
+      var studentsButton = $("#students-button");
+      var teachersButton = $("#teachers-button");
+      var workersButton = $("#workers-button");
+      var addStudentButton = $("#add-student-button");
+
+      // Handle click event for students button
+      studentsButton.click(function () {
+        // Set the dashboard title and content
+        $("#dashboard-title").text("Students Information");
+        $("#dashboard-content").text(
+          "Here is a list of all the students in the database."
+        );
+
+        // Remove active class from other buttons
+        teachersButton.removeClass("active");
+        workersButton.removeClass("active");
+        addStudentButton.removeClass("active");
+
+        // Add active class to students button
+        studentsButton.addClass("active");
+      });
+
+      // Handle click event for teachers button
+      teachersButton.click(function () {
+        // Set the dashboard title and content
+        $("#dashboard-title").text("Teachers Information");
+        $("#dashboard-content").text(
+          "Here is a list of all the teachers in the database."
+        );
+
+        // Remove active class from other buttons
+        studentsButton.removeClass("active");
+        workersButton.removeClass("active");
+        addStudentButton.removeClass("active");
+
+        // Add active class to teachers button
+        teachersButton.addClass("active");
+      });
+
+      // Handle click event for workers button
+      workersButton.click(function () {
+        // Set the dashboard title and content
+        $("#dashboard-title").text("Workers Information");
+        $("#dashboard-content").text(
+          "Here is a list of all the workers in the database."
+        );
+
+        // Remove active class from other buttons
+        studentsButton.removeClass("active");
+        teachersButton.removeClass("active");
+        addStudentButton.removeClass("active");
+
+        // Add active class to workers button
+        workersButton.addClass("active");
+      });
+
+      // Handle click event for add student button
+      addStudentButton.click(function () {
+        // Set the dashboard title and content
+        $("#dashboard-title").text("Add Student");
+        $("#dashboard-content").text(
+          "Please enter the student information in the modal window."
+        );
+
+        // Remove active class from other buttons
+        studentsButton.removeClass("active");
+        teachersButton.removeClass("active");
+        workersButton.removeClass("active");
+
+        // Add active class to add student button
+        addStudentButton.addClass("active");
+
+        // Show the modal window
+        $("#add-student-modal").modal();
+      });
+    </script>
+  </body>
+</html>
